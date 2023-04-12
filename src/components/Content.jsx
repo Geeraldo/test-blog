@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Content = () => {
+const Content = ({ data }) => {
+  const postAll = data;
+  console.log(postAll);
   return (
     <div className="w-full my-5 mx-10 h-full">
       <div className="grid grid-cols-12 gap-2 mx-10">
@@ -50,7 +52,8 @@ const Content = () => {
                 </div>
               </div>
             </div>
-            <div>
+            {postAll?.map((item) =>(
+            <div key={index}>
               <div className="max-w-sm rounded overflow-hidden shadow-lg  bg-slate-100">
                 <img className="w-auto" src="https://images.unsplash.com/photo-1487611459768-bd414656ea10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
                 <div className="px-6 py-4">
@@ -63,15 +66,15 @@ const Content = () => {
                   </div>
                   </div>
                   <div className="text-bold text-black text-lg">
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>{item?.title}</p>
                   </div>
                   <div className="my-5">
-                    <p className="text-grey-500 text-base-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, ea!</p>
+                    <p className="text-grey-500 text-base-content">{item?.body}</p>
                   </div>
                 </div>
               </div>
             </div>
-
+))}
           </div>
         </div>
       </div>
